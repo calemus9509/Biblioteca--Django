@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block titulo %}Index{% endblock %}
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        lista de libros
+    </div>
+    <div class="card-body">
+        <div class="card-title">Libros</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Imagen</th>
+                    <th>Descripcion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for libro in libros %}
+                <tr>
+                    <td>{{libro.id}}</td>
+                    <td>{{libro.titulo}}</td>
+                    <td><img src="{{libro.imagen.url}}" width="100px"></td>
+                    <td>{{libro.descripcion}}</td>
+                    <td><a class="btn btn-warning" href="{% url 'editar' %}">Editar</a> | Borrar</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer"></div>
+</div>
+{% endblock %}
