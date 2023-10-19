@@ -25,7 +25,9 @@
                     <td>{{libro.titulo}}</td>
                     <td><img src="{{libro.imagen.url}}" width="100px"></td>
                     <td>{{libro.descripcion}}</td>
-                    <td><a class="btn btn-warning" href="{% url 'editar' %}">Editar</a> | Borrar</td>
+                    <td><a class="btn btn-outline-warning" href="{% url 'editar' %}">Editar</a>
+                        <a class="btn btn-outline-danger" href="{% url 'eliminar' libro.id %}">Borrar</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
